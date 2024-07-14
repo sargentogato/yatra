@@ -24,7 +24,7 @@ jobs:
         run: npm install    
 
       - name: get into backend directory
-        working-directory: cd frontend
+        working-directory: ./backend
         run: npm install   
 
       - name: Start system
