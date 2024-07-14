@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: '20.15.1'
 
-      - name: change to front directory
-        run: cd ..
-
       - name: get into frontend directory 
         run: cd frontend
 
