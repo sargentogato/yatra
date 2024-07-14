@@ -20,15 +20,11 @@ jobs:
           node-version: '20.15.1'
 
       - name: get into frontend directory 
-        run: cd frontend
-
-      - name: Install dependencies
+        working-directory: ./frontend
         run: npm install    
 
-      - name: change to backend directory
-        run: cd frontend
-
-      - name: Install dependencies
+      - name: get into backend directory
+        working-directory: cd frontend
         run: npm install   
 
       - name: Start system
