@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 'lts'
 
-      - name: nstall dependencies
+      - name: Install dependencies
         run: npm install    
 
       - name: Start system
