@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 'lts'
 
-      -name: Installa dependencies
-       run: npm install    
+      - name: nstall dependencies
+        run: npm install    
 
       - name: Start system
         run: docker compose up -d
