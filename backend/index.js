@@ -12,6 +12,8 @@ app.use(express.json());
 
 // Importar las rutas definidas en posts.js
 const postsRouter = require("./routes/post");
+
+//Endpoint
 app.use("/api/posts", postsRouter);
 
 // Ruta de prueba

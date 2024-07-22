@@ -15,33 +15,36 @@
   </div>
 </template>
 
-<script>
-import api from '@/services/api'
+<script lang="ts" setup>
+import api from '@/services/api.js'
+import axios from 'axios'
 
-export default {
-  data() {
-    return {
-      title: '',
-      content: ''
+import { ref } from 'vue'
+
+const title = ref('')
+const content = ref('')
+
+const submitPost = async () => {
+  try {
+    const post = {
+      title: title.value,
+      content: content.value
     }
-  },
-  methods: {
-    async submitPost() {
-      try {
-        const post = {
-          title: this.title,
-          content: this.content
-        }
-        const response = await api.createPost(post)
-        console.log('info:', post)
-        console.log('Respuesta del servidor:', response.data)
-        alert('Post created successfully')
-        this.title = ''
-        this.content = ''
-      } catch (error) {
-        console.error('Error:', error)
-        alert('Error creating post: ' + (error.response?.data?.message || error.message))
-      }
+    const response = await api.createPost(post)
+    console.log('info:', post)
+    console.log('Respuesta del servidor:', response.data)
+    alert('Post created successfully')
+    title.value = ''
+    content.value = ''
+  } catch (error: any) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error)
+      alert('Error creating post: ' + (error.response?.data?.message || error.message))
+    } else if (error instanceof Error) {
+      console.error('Error:', error)
+    } else {
+      console.error('Unknow error', error)
+      alert('An Unknow error occurred')
     }
   }
 }
