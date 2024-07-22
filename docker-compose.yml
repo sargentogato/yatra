@@ -9,6 +9,7 @@ services:
       - ./backend/.env
     volumes:
       - ./backend:/src
+      # - /src/node_modules/
 
   frontend:
     build: ./frontend
@@ -20,3 +21,4 @@ services:
       - backend
     volumes:
       - ./frontend:/app
+      # - /app/node_modules/
