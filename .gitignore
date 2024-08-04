@@ -1,5 +1,7 @@
 #backend
 /backend/node_modules
+/backend/.env
+/backend/config/serviceAccountKey.json
 
 
 
@@ -35,6 +37,7 @@
 /frontend-vue/*.sw?
 
 /frontend-vue/*.tsbuildinfo
+/frontend-vue/.env
 
 
 #root
