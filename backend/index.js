@@ -1,19 +1,27 @@
 // backend/index.js
 const express = require("express");
 const cors = require("cors");
-const app = express();
-const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
+const admin = require("firebase-admin");
+const dotenv = require("dotenv");
+const PORT = process.env.PORT || 3000;
+
+//Cargando variable de entorno
+dotenv.config();
+
+/* Express */
+const app = express();
+
+//Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Importar las rutas definidas en posts.js
 const postsRouter = require("./routes/post");
 
-//Habilitar Cors
-app.use(cors());
-// Middleware para manejar JSON
-app.use(bodyParser.json());
-
 //Endpoints
-app.use("/api/posts", postsRouter);
+app.use("/api/post", postsRouter);
 
 // Ruta de prueba
 app.get("/", (req, res) => {
@@ -27,6 +35,6 @@ app.post("/post", (request, response) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

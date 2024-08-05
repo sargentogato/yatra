@@ -9,6 +9,6 @@ const apiClient = axios.create({
 
 export default {
   createPost(post) {
-    return apiClient.post('/posts/create', post)
+    return apiClient.post('/post/create', post)
   }
 }

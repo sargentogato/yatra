@@ -5,10 +5,6 @@
 # Variables
 DC := docker-compose
 
-# Colores para la salida en consola
-CYAN := \033[0;36m
-NC := \033[0m # No Color
-
 up: ## Inicia los contenedores
 	$(DC) up
 
@@ -34,10 +30,10 @@ logs: ## Muestra los logs de los contenedores
 	$(DC) logs -f
 
 shellBack: ## Abre una shell en el contenedor del backend
-	$(DC) exec yatra-backend-1 sh
+	docker exec -it yatra-backend-1 sh
 
 shellFront: ## Abre una shell en el contenedor del frontend
-	$(DC) exec yatra-frontend-1 sh
+	docker exec -it yatra-frontend-1 sh
 
 help: ## Muestra esta ayuda
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  $(CYAN)%-10s$(NC) %s\n", $$1, $$2}'
