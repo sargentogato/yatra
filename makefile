@@ -3,7 +3,7 @@
 # Makefile
 
 # Variables
-DC := docker-compose
+DC := docker compose
 
 up: ## Inicia los contenedores
 	$(DC) up
