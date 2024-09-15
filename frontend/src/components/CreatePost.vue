@@ -24,6 +24,8 @@ import { ref } from 'vue'
 const title = ref('')
 const content = ref('')
 
+/* No sé si el try catch está bien */
+
 const submitPost = async () => {
   try {
     const post = {
@@ -33,6 +35,7 @@ const submitPost = async () => {
     const response = await api.createPost(post)
     console.log('info:', post)
     console.log('Respuesta del servidor:', response.data)
+
     alert('Post created successfully')
     title.value = ''
     content.value = ''
