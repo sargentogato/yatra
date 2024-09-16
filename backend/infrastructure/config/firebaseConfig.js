@@ -1,9 +1,10 @@
 import admin from "firebase-admin";
 import dotenv from "dotenv";
+// import * as fs from "fs";
 dotenv.config();
 
-import * as fs from "fs";
-const firebaseConfig = JSON.parse(fs.readFileSync("./serviceAccountKey.json"));
+// const firebaseConfig = JSON.parse(fs.readFileSync("./serviceAccountKey.json"));
+const firebaseConfig = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
 
 let dataBase;
 
