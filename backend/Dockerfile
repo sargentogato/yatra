@@ -16,4 +16,4 @@ COPY . .
 EXPOSE ${PORT:-3000}
 
 # Comando para ejecutar la aplicación
-CMD ["node", "index.js"]
+CMD ["npm", "run", "dev"]

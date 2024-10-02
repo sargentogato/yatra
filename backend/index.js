@@ -1,32 +1,25 @@
 // backend/index.js
-const express = require("express");
-const cors = require("cors");
-const app = express();
-const port = process.env.PORT || 3000;
-const bodyParser = require("body-parser");
-// Importar las rutas definidas en posts.js
-const postsRouter = require("./routes/post");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import postsRouter from "./infrastructure/routes/post.js";
+const PORT = process.env.PORT || 3000;
 
-//Habilitar Cors
+//Cargando variable de entorno
+dotenv.config();
+
+/* Express */
+const app = express();
+
+//Middlewares
 app.use(cors());
-// Middleware para manejar JSON
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Endpoints
-app.use("/api/posts", postsRouter);
+app.use("/api/post", postsRouter);
 
-// Ruta de prueba
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando correctamente");
-});
-
-//Rutas
-app.post("/post", (request, response) => {
-  response.send({
-    message: `Hello ${request.body.email}`,
-  });
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
