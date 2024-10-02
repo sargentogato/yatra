@@ -1,5 +1,5 @@
 # Comandos
-.PHONY: up up-d down build logs shell help ps buildBack buildFront shellBack shellFront
+.PHONY: up up-backend up-frontend up-d down build logs shell help ps buildBack buildFront shellBack shellFront
 # Makefile
 
 # Variables
@@ -8,6 +8,12 @@ DC := docker compose
 up: ## Inicia los contenedores
 	$(DC) up
 
+up-backend:
+	$(DC) up backend
+
+up-frontend:
+	$(DC) up frontend
+	
 up-d: ## Inicia los contenedores en modo detached
 	$(DC) up -d
 
