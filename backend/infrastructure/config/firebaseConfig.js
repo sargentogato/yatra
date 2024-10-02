@@ -1,3 +1,4 @@
+//Revisar si es necesario para usar el firebase
 import admin from "firebase-admin";
 import dotenv from "dotenv";
 // import * as fs from "fs";
