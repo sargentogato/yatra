@@ -8,10 +8,10 @@ export default async function createPost(req, res) {
   const repository = new PostRepository(dataBase);
   const action = new CreatePostAction(repository);
 
-  const post = action.execute(req.body.title, req.body.content);
+  const post = action.handlePostCreation(req.body.title, req.body.content);
 
-  res.status(201).json({
-    message: "Done",
+  await res.status(201).json({
+    message: "El post ha sido creado correctamente",
     id: post.id,
   });
 }

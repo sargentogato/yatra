@@ -1,5 +1,4 @@
 <template>
-  <div>Hola Mundo</div>
   <CreatePost />
 </template>
 
