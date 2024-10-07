@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+/* Instancia de axios que da acceso a todos los métodos de Axios */
 const apiClient = axios.create({
   baseURL: 'http://localhost:3000/api',
   headers: {
@@ -9,8 +10,11 @@ const apiClient = axios.create({
 
 export default {
   createPost(post) {
-    console.log('POST:', post)
-    const postToCreate = apiClient.post('/post/create', post)
+    /* 
+      Llamando al método post de Axios, utilizando la instancia que creamos 
+      arriba
+    */
+    const postToCreate = apiClient.post('/posts/create', post)
     console.log('POST TO CREATE:', postToCreate)
 
     return postToCreate

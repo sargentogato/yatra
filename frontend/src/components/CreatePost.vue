@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import api from '@/services/api.js'
 import axios from 'axios'
 
@@ -24,7 +24,6 @@ import { ref } from 'vue'
 const title = ref('')
 const content = ref('')
 
-/* No sé si el try catch está bien */
 
 const submitPost = async () => {
   try {
@@ -33,13 +32,15 @@ const submitPost = async () => {
       content: content.value
     }
     const response = await api.createPost(post)
-    console.log('info:', post)
-    console.log('Respuesta del servidor:', response.data)
-
-    alert('Post created successfully')
+    console.log('Respuesta del servidor:', response.data.message)
+    
+    if(response.data.message) {
+      alert(response.data.message)
+    }
+    
     title.value = ''
     content.value = ''
-  } catch (error: any) {
+  } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error('Axios error:', error)
       alert('Error creating post: ' + (error.response?.data?.message || error.message))
@@ -47,7 +48,7 @@ const submitPost = async () => {
       console.error('Error:', error)
     } else {
       console.error('Unknow error', error)
-      alert('An Unknow error occurred')
+      alert('Ha ocurrido un error, el post no ha sido creado')
     }
   }
 }

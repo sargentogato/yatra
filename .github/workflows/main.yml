@@ -1,8 +1,6 @@
 
 name: CI
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main]
 
@@ -26,6 +24,3 @@ jobs:
       - name: get into backend directory
         working-directory: ./backend
         run: npm install   
-
-      - name: Start system
-        run: docker-compose up -d

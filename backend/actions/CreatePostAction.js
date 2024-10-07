@@ -5,9 +5,11 @@ export default class CreatePostAction {
     this.postRepository = postRepository;
   }
 
-  async execute(title, content) {
+  async handlePostCreation(title, content) {
     const service = new CreatePostService(this.postRepository);
-
-    return service.execute(title, content);
+    console.log("CreatePostAction:", title, content);
+    
+    /* Llamamos al método execute y le pasamos dos argumentos */
+    return service.savePostToRepository(title, content);
   }
 }

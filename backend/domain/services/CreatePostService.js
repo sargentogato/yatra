@@ -3,7 +3,7 @@ export default class CreatePostService {
     this.postRepository = postRepository;
   }
 
-  async execute(title, content) {
+  async savePostToRepository(title, content) {
     const post = this.postRepository.create(title, content);
     return post;
   }
