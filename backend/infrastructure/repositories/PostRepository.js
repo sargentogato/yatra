@@ -6,9 +6,10 @@ export default class PostRepository {
   async create(title, content) {
     const docRef = await this.database
       .collection("post")
-      .add({ title, content });
+      .add({ title, content })
 
-    const newDoc = await docRef.get();
-    return newDoc.data();
+    const newDoc = await docRef;
+    
+    return newDoc.id
   }
 }

@@ -10,6 +10,8 @@ export default class CreatePostAction {
     console.log("CreatePostAction:", title, content);
     
     /* Llamamos al método execute y le pasamos dos argumentos */
-    return service.savePostToRepository(title, content);
+    const dataSave = await service.savePostToRepository(title, content)
+    
+    return dataSave
   }
 }

@@ -32,10 +32,12 @@ const submitPost = async () => {
       content: content.value
     }
     const response = await api.createPost(post)
-    console.log('Respuesta del servidor:', response.data.message)
+    console.log('Respuesta del servidor:', response.data.id)
     
-    if(response.data.message) {
+    if(response.data.id) {
       alert(response.data.message)
+    }else {
+      alert("Parece que ha habido un error inesperado. Verifique en la aplicación si su evento ha sido creado correctamente")
     }
     
     title.value = ''

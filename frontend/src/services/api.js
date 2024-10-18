@@ -9,14 +9,13 @@ const apiClient = axios.create({
 })
 
 export default {
-  createPost(post) {
+  async createPost(post) {
     /* 
       Llamando al método post de Axios, utilizando la instancia que creamos 
       arriba
     */
-    const postToCreate = apiClient.post('/posts/create', post)
-    console.log('POST TO CREATE:', postToCreate)
-
+    const postToCreate = await apiClient.post('/posts', post)
+    
     return postToCreate
   }
 }
