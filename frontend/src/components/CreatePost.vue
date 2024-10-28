@@ -32,12 +32,12 @@ const submitPost = async () => {
       content: content.value
     }
     const response = await api.createPost(post)
-    console.log('Respuesta del servidor:', response.data.id)
+    console.log('Respuesta del servidor:', response.data.message, response.data.id)
     
     if(response.data.id) {
       alert(response.data.message)
     }else {
-      alert("Parece que ha habido un error inesperado. Verifique en la aplicación si su evento ha sido creado correctamente")
+      alert(response.data)
     }
     
     title.value = ''
@@ -45,7 +45,7 @@ const submitPost = async () => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error('Axios error:', error)
-      alert('Error creating post: ' + (error.response?.data?.message || error.message))
+      alert(error.response?.data?.message || error.message )
     } else if (error instanceof Error) {
       console.error('Error:', error)
     } else {
