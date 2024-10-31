@@ -1,8 +1,8 @@
 #backend
 /backend/node_modules
 /backend/.env
-/backend/serviceAccountKey.json
-/backend/firebaseConfig
+/backend/src/firebaseConfig/serviceAccountKey.json
+/backend/src/firebaseConfig
 
 
 
