@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Backend API with Express",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "npx nodemon -e ts,json --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' index.ts",
     "build": "tsc",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
@@ -17,7 +18,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "firebase-admin": "^12.6.0"
+    "firebase-admin": "^12.6.0",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.5",

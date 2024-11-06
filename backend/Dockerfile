@@ -2,7 +2,7 @@
 FROM node:18
 
 # Establece el directorio de trabajo en el contenedor
-WORKDIR /src
+WORKDIR /app
 
 # Copia los archivos package.json y package-lock.json
 COPY package*.json ./
@@ -16,5 +16,4 @@ COPY . .
 # Expone el puerto
 EXPOSE 3000
 
-# Comando para ejecutar la aplicación
 CMD ["npm", "run", "dev"]
