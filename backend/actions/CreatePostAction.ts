@@ -1,11 +1,13 @@
-import CreatePostService from "../domain/services/CreatePostService.js";
+import { IPostRepository } from "../domain/repositories/PostRepository";
+import CreatePostService from "../domain/services/CreatePostService";
 
 export default class CreatePostAction {
-  constructor(postRepository) {
+  postRepository: IPostRepository;
+  constructor(postRepository:IPostRepository) {
     this.postRepository = postRepository;
   }
 
-  async handlePostCreation(title, content) {
+  async handlePostCreation(title:string, content:string) {
     const service = new CreatePostService(this.postRepository);
     console.log("CreatePostAction:", title, content);
     

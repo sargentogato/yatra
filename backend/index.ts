@@ -1,16 +1,16 @@
 // backend/index.js
-import express from "express";
+import express, { Application } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import postsRouter from "./infrastructure/routes/post.js";
+import postsRouter from "./infrastructure/routes/post";
 const PORT = process.env.PORT || 3000;
 
-//Cargando variable de entorno
+// Cargando variable de entorno
 dotenv.config();
 
 /* Express */
-const app = express();
+const app: Application = express();
 
 //Middlewares
 app.use(cors());

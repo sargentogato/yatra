@@ -15,19 +15,23 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import api from '@/services/api.js'
 import axios from 'axios'
 
 import { ref } from 'vue'
 
-const title = ref('')
-const content = ref('')
+const title = ref<string>('')
+const content = ref<string>('')
 
+interface Post {
+  title:string,
+  content:string,
+}
 
-const submitPost = async () => {
+const submitPost = async ():Promise<void> => {
   try {
-    const post = {
+    const post:Post = {
       title: title.value,
       content: content.value
     }

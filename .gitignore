@@ -2,6 +2,7 @@
 /backend/node_modules
 /backend/.env
 /backend/src/firebaseConfig/serviceAccountKey.json
+/backend/firebaseConfig/serviceAccountKey.json
 /backend/src/firebaseConfig
 
 

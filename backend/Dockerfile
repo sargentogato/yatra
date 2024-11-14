@@ -1,8 +1,8 @@
 # backend/Dockerfile
-FROM node:lts
+FROM node:18
 
 # Establece el directorio de trabajo en el contenedor
-WORKDIR /src
+WORKDIR /app
 
 # Copia los archivos package.json y package-lock.json
 COPY package*.json ./
@@ -13,7 +13,7 @@ RUN npm install
 # Copia el resto de los archivos del backend
 COPY . .
 
-EXPOSE ${PORT:-3000}
+# Expone el puerto
+EXPOSE 3000
 
-# Comando para ejecutar la aplicación
 CMD ["npm", "run", "dev"]
